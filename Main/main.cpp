@@ -35,13 +35,38 @@ typedef long double ldb;
 // ------------------------------------------------------------------------------
 
 void NoCiLLaX(){
-  ll i; cin >> i;
+  ll n, t; cin >> n >> t;
+  string s; cin >> s;
+  string ans;
 
-  cout<< i << nl;
+  for(ll i = 0; i < t; i++){
+
+    ans = "";
+
+    for(ll j = 0; j < s.size(); j++){
+
+      if(s[j] == 'G' || (s[j] == 'B' && s[j+1] != 'G')) ans += s[j];
+
+      if(s[j] == 'B' && s[j + 1] == 'G') {
+
+        ans += "GB";
+        j++;
+
+      }
+
+    }
+
+    s = ans;
+
+  }
+  
+  cout << s << nl;
+
 }
 
 int main(){
   // FST_IO
   NoCiLLaX();
+
   
 }
