@@ -64,7 +64,8 @@ typedef long double ldb;
 ///    11.Extended Euclid
 ///    12.Euler's totient function
 ///    13.Matrix Exponentiation
-///    14.Fast Doubling Method
+///    14.Fast Doubling 
+///    15.Prime Check
 
 ///###################################################################
 
@@ -498,6 +499,23 @@ void FastDoubling(ll n, ll res[])
 
 ///-------------------------------------------------------------------
 
+// +_+_+_+_+_+_+_+_+_+_+_+_+_+_+ 15. CHECK PRIME +_+_+_+_+_+_+_+_+_+_+_+_+_+_+
+
+bool isPrime(int n) {
+    if (n <= 1)
+        return false;
+    if (n <= 3)
+        return true;
+
+    if (n % 2 == 0 || n % 3 == 0)
+        return false;
+
+    for (int i = 5; i * i <= n; i = i + 6)
+        if (n % i == 0 || n % (i + 2) == 0)
+            return false;
+
+    return true;
+}
 
 ///----------------------- 6.Miller Rabin ----------------------------
 ///-------------------------------------------------------------------
