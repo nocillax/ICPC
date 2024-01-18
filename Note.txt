@@ -1,0 +1,22 @@
+To run C++17 codes in Mac. Do the following: 
+instead of using CodeRunner, write the following code in the terminal:
+
+"clang++ --std=c++17 filename.cpp"
+
+Then a file named "a.out" will be created. 
+
+Then write the following code in the terminal:
+
+"./a.out"
+
+
+So basically for this repository, you will write the following:
+
+clang++ --std=c++17 main.cpp
+./a.out
+
+N.B: Make sure you are in the right directory. input.txt will not work in this method. 
+
+"Enjoy Coding!"
+
+Exit();
