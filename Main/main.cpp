@@ -35,7 +35,9 @@ typedef long double ldb;
 // ------------------------------------------------------------------------------
 
 void NoCiLLaX(){
-  cout << "Further Edits" << nl;
+  ll i; cin >> i;
+
+  cout<< i << nl;
 }
 
 int main(){
