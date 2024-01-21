@@ -35,47 +35,40 @@ typedef long double ldb;
 // ------------------------------------------------------------------------------
 
 void NoCiLLaX(){
-  ll test; cin >> test;
-  ll mx, mn, sol;
-  
-  while(test--){
-    mx = 0; mn = INF;
-    sol = 0;
-    
-    vector<ll> greater;
-    vector<ll> smaller;
-    vector<ll> equal;
+  ll n, t; cin >> n >> t;
+  ll mx = n; ll mn = 1;
+  bool mxChng = false;
+  bool mnChng = false;
 
-    ll n; cin >> n;
+  while(t--){
 
-    while(n--){
-      ll a, k; cin >> a >> k;
+    string s1, s2, s3, s4, s5; cin >> s1 >> s2 >> s3 >> s4 >> s5;
 
-      (a == 1) ? greater.pb(k) : (a == 2) ? smaller.pb(k) : (a == 3) ? equal.pb(k) : void();
+    if(s3 == "left") { 
+
+      int x = stoi(s5);
+      mx = min(mx, (ll)x);
+      mxChng = true;
 
     }
 
-    sort(greater.begin(), greater.end());
-    sort(smaller.begin(), smaller.end());
-    sort(equal.begin(), equal.end());
+    if(s3 == "right"){
 
-    mn = greater[greater.size()-1]; mx = smaller[0];
-
-    ((mx - mn + 1) > 0) ? sol = (mx - mn + 1) : sol = 0;
-
-    if(sol == 0) sol = 0;
-
-    else {
-
-      for(ll i = 0; i < equal.size(); i++){
-        if(equal[i] <= mx && equal[i] >= mn) sol--;
-      }
+      int x = stoi(s5);
+      mn = max(mn, (ll)x);
+      mnChng = true;
 
     }
 
-    cout << sol << nl;
+  }
 
-  } 
+  if(mxChng) mx = mx - 1;
+  if(mnChng) mn = mn + 1;
+
+  ll sol = mx - mn + 1;
+
+  if(sol < 1) cout << "-1" << nl;
+  else cout << sol << nl;
 
 }
 
