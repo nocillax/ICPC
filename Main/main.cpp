@@ -35,54 +35,46 @@ typedef long double ldb;
 // ------------------------------------------------------------------------------
 
 void NoCiLLaX(){
-  ll test; cin >> test;
-  ll mx, mn, sol;
-  
-  while(test--){
-    mx = 0; mn = INF;
-    sol = 0;
-    
-    vector<ll> greater;
-    vector<ll> smaller;
-    vector<ll> equal;
+  ll n; cin >> n;
+  string cap = "";
+  vector<string> rat;
+  vector<string> man;
+  vector<string> wc;
 
-    ll n; cin >> n;
+  while(n--){
+    string s1, s2; cin >> s1 >> s2;
+    if(s2 == "captain") cap = s1;
+    if(s2 == "man") man.pb(s1);
+    if(s2 == "woman" || s2 == "child") wc.pb(s1);
+    if(s2 == "rat") rat.pb(s1);
+  }
 
-    while(n--){
-      ll a, k; cin >> a >> k;
-
-      (a == 1) ? greater.pb(k) : (a == 2) ? smaller.pb(k) : (a == 3) ? equal.pb(k) : void();
-
+  if(!rat.empty()){
+    for(ll i = 0; i < rat.size(); i++){
+      cout << rat[i] << nl;
     }
+  }
 
-    sort(greater.begin(), greater.end());
-    sort(smaller.begin(), smaller.end());
-    sort(equal.begin(), equal.end());
-
-    mn = greater[greater.size()-1]; mx = smaller[0];
-
-    ((mx - mn + 1) > 0) ? sol = (mx - mn + 1) : sol = 0;
-
-    if(sol == 0) sol = 0;
-
-    else {
-
-      for(ll i = 0; i < equal.size(); i++){
-        if(equal[i] <= mx && equal[i] >= mn) sol--;
-      }
-
+  if(!wc.empty()){
+    for(ll i = 0; i < wc.size(); i++){
+      cout << wc[i] << nl;
     }
+  }
 
-    cout << sol << nl;
+  if(!man.empty()){
+    for(ll i = 0; i < man.size(); i++){
+      cout << man[i] << nl;
+    }
+  }
 
-  } 
+  if(cap != "") cout << cap << nl;
 
 }
-
 
 int main(){
-  // FST_IO
+// FST_IO
   NoCiLLaX();
 
-  
 }
+  
+
