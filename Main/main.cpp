@@ -35,22 +35,50 @@ typedef long double ldb;
 // ------------------------------------------------------------------------------
 
 void NoCiLLaX(){
+  ll test; cin >> test;
+  ll mx, mn, sol;
   
-  string s1, s2; cin >> s1 >> s2;
-  string ans = "";
-  for(ll i = 0; i < s1.size(); i++){
+  while(test--){
+    mx = 0; mn = INF;
+    sol = 0;
+    
+    vector<ll> greater;
+    vector<ll> smaller;
+    vector<ll> equal;
 
-    int x = s1[i] - '0';
-    int y = s2[i] - '0';
+    ll n; cin >> n;
 
-    int z = (x^y);
+    while(n--){
+      ll a, k; cin >> a >> k;
 
-    ans += to_string(z);
-  }
+      (a == 1) ? greater.pb(k) : (a == 2) ? smaller.pb(k) : (a == 3) ? equal.pb(k) : void();
 
-  cout << ans << nl;
+    }
+
+    sort(greater.begin(), greater.end());
+    sort(smaller.begin(), smaller.end());
+    sort(equal.begin(), equal.end());
+
+    mn = greater[greater.size()-1]; mx = smaller[0];
+
+    ((mx - mn + 1) > 0) ? sol = (mx - mn + 1) : sol = 0;
+
+    if(sol == 0) sol = 0;
+
+    else {
+
+      for(ll i = 0; i < equal.size(); i++){
+        if(equal[i] <= mx && equal[i] >= mn) sol--;
+      }
+
+    }
+
+    cout << sol << nl;
+
+  } 
 
 }
+
 
 int main(){
 // FST_IO
