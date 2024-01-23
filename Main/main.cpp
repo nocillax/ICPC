@@ -37,45 +37,6 @@ typedef long double ldb;
 void NoCiLLaX(){
   ll test; cin >> test;
   ll mx, mn, sol;
-  
-  while(test--){
-    mx = 0; mn = INF;
-    sol = 0;
-    
-    vector<ll> greater;
-    vector<ll> smaller;
-    vector<ll> equal;
-
-    ll n; cin >> n;
-
-    while(n--){
-      ll a, k; cin >> a >> k;
-
-      (a == 1) ? greater.pb(k) : (a == 2) ? smaller.pb(k) : (a == 3) ? equal.pb(k) : void();
-
-    }
-
-    sort(greater.begin(), greater.end());
-    sort(smaller.begin(), smaller.end());
-    sort(equal.begin(), equal.end());
-
-    mn = greater[greater.size()-1]; mx = smaller[0];
-
-    ((mx - mn + 1) > 0) ? sol = (mx - mn + 1) : sol = 0;
-
-    if(sol == 0) sol = 0;
-
-    else {
-
-      for(ll i = 0; i < equal.size(); i++){
-        if(equal[i] <= mx && equal[i] >= mn) sol--;
-      }
-
-    }
-
-    cout << sol << nl;
-
-  } 
 
 }
 
