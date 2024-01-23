@@ -1,7 +1,2 @@
-6
-Jack captain
-Alice woman
-Charlie man
-Teddy rat
-Bob child
-Julia woman
+01110
+01100

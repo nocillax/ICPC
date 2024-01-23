@@ -35,39 +35,20 @@ typedef long double ldb;
 // ------------------------------------------------------------------------------
 
 void NoCiLLaX(){
-  ll n; cin >> n;
-  string cap = "";
-  vector<string> rat;
-  vector<string> man;
-  vector<string> wc;
+  
+  string s1, s2; cin >> s1 >> s2;
+  string ans = "";
+  for(ll i = 0; i < s1.size(); i++){
 
-  while(n--){
-    string s1, s2; cin >> s1 >> s2;
-    if(s2 == "captain") cap = s1;
-    if(s2 == "man") man.pb(s1);
-    if(s2 == "woman" || s2 == "child") wc.pb(s1);
-    if(s2 == "rat") rat.pb(s1);
+    int x = s1[i] - '0';
+    int y = s2[i] - '0';
+
+    int z = (x^y);
+
+    ans += to_string(z);
   }
 
-  if(!rat.empty()){
-    for(ll i = 0; i < rat.size(); i++){
-      cout << rat[i] << nl;
-    }
-  }
-
-  if(!wc.empty()){
-    for(ll i = 0; i < wc.size(); i++){
-      cout << wc[i] << nl;
-    }
-  }
-
-  if(!man.empty()){
-    for(ll i = 0; i < man.size(); i++){
-      cout << man[i] << nl;
-    }
-  }
-
-  if(cap != "") cout << cap << nl;
+  cout << ans << nl;
 
 }
 
