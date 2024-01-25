@@ -35,14 +35,46 @@ typedef long double ldb;
 // ------------------------------------------------------------------------------
 
 void NoCiLLaX(){
-  ll test; cin >> test;
-  ll mx, mn, sol;
 
+  ll test; cin >> test;
+  while(test--){
+    vector<ll> v;
+    ll bobSum = 0; ll ans = -INF; ll totalSum = 0;
+    ll n, k, x; cin >> n >> k >> x;
+
+    for(ll i = 0; i < n; i++){
+      ll e; cin >> e;
+      v[i] = e;
+                
+    }
+    
+    sort(v.begin(), v.end());
+
+    for(ll i = 0; i < k; i++){
+      ll j = 0, l = 0;
+
+
+
+        for(j = 0; j < x; j++){
+          if(i+j < n) bobSum += v[i+j];
+        }
+
+        for(l = i+j; l < n; l++){
+          totalSum += v[l];
+        }
+
+        if((totalSum - bobSum) > (ans)) ans = totalSum - bobSum;
+
+          
+    }
+
+    cout << ans << nl;
+  }
 }
 
 
 int main(){
-// FST_IO
+ //FST_IO
   NoCiLLaX();
 
 }
