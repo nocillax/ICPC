@@ -35,9 +35,18 @@ typedef long double ldb;
 // ------------------------------------------------------------------------------
 
 void NoCiLLaX(){
-  ll test; cin >> test;
-  ll mx, mn, sol;
+  ll sz; cin >> sz;
+  string s; cin >> s;
+  
+  set<char> ss;
 
+  for(ll i = 0; i < s.size(); i++){
+    char p = tolower(s[i]);
+    ss.insert(p);
+  }
+
+  if(ss.size() == 26) cout << "YES" << nl;
+  else cout << "NO" << nl;
 }
 
 
