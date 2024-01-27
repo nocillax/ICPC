@@ -35,23 +35,22 @@ typedef long double ldb;
 // ------------------------------------------------------------------------------
 
 void NoCiLLaX(){
-  ll sz; cin >> sz;
-  string s; cin >> s;
-  
-  set<char> ss;
+  ll test; cin >> test; 
 
-  for(ll i = 0; i < s.size(); i++){
-    char p = tolower(s[i]);
-    ss.insert(p);
+  while(test--){
+
+    string s; cin >> s;
+    int n = stoi(s);
+    int m = s.size();
+
+    cout << ((n%10) - 1) * 10 + ((m*(m+1))/2) << nl;
+
   }
-
-  if(ss.size() == 26) cout << "YES" << nl;
-  else cout << "NO" << nl;
 }
 
 
 int main(){
- //FST_IO
+  FST_IO
   NoCiLLaX();
 
 }
