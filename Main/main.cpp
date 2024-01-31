@@ -26,19 +26,18 @@ typedef long double ldb;
 #define pb            push_back
 #define mp            make_pair
 #define mpl           make_pair<ll,ll>
-#define PR            pair<ll,ll>
+#define pl            pair<ll,ll>
+#define all(x)        x.begin(), x.end()
 #define ff            first
 #define ss            second
 #define mod           10000007
-#define INF           1e18
+#define INF           2e18
 #define EPS           1e-2
+#define tt ll t; cin>>t; while(t--)
 // ------------------------------------------------------------------------------
   
   void NoCiLLaX(){
-
-  ll t; cin >> t;
-
-  while(t--){
+  tt{
     ll n, m, k; cin >> n >> m >> k;
     ll jSum = 0;
     ll mxidx;
@@ -66,8 +65,8 @@ typedef long double ldb;
       ll jSumOdd = 0, jSumEven = 0;
 
       if(i%2 != 0){
-        sort(j.begin(), j.end());
-        sort(g.begin(), g.end());
+        sort(all(j));
+        sort(all(g));
 
         if(j[0] <= g[m-1]){
 
@@ -81,8 +80,8 @@ typedef long double ldb;
       }
 
       else if(i%2 == 0){
-        sort(j.begin(), j.end());
-        sort(g.begin(), g.end());
+        sort(all(j));
+        sort(all(g));
 
         if(g[0] <= j[n-1]){
 
@@ -106,8 +105,8 @@ typedef long double ldb;
       }
     }
   }
+  }
 
-}
 
 int main(){
   FST_IO
