@@ -27,13 +27,13 @@ typedef long double ldb;
 #define mp            make_pair
 #define mpl           make_pair<ll,ll>
 #define pl            pair<ll,ll>
-#define all(x)        x.begin(), x.end()
 #define ff            first
 #define ss            second
 #define mod           10000007
 #define INF           2e18
 #define EPS           1e-2
-#define tt ll t; cin>>t; while(t--)
+#define tt            ll t; cin>>t; while(t--)
+#define all(x)        x.begin(), x.end()
 // ------------------------------------------------------------------------------
 
 void NoCiLLaX(){
