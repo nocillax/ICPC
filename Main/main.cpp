@@ -33,24 +33,74 @@ typedef long double ldb;
 #define INF           1e18
 #define EPS           1e-2
 // ------------------------------------------------------------------------------
+  
+  void NoCiLLaX(){
 
-void NoCiLLaX(){
-  ll test; cin >> test; 
+  ll t; cin >> t;
 
-  while(test--){
+  while(t--){
+    ll n, m, k; cin >> n >> m >> k;
+    ll sum = 0;
 
-    string s; cin >> s;
-    int n = stoi(s);
-    int m = s.size();
+    vector<ll> jelly;
+    vector<ll> gelly;
 
-    cout << ((n%10) - 1) * 10 + ((m*(m+1))/2) << nl;
+    for(ll i = 0; i < n; i++){
+      ll x; cin >> x;
+      jelly.pb(x);
+    }
+
+    for(ll i = 0; i < m; i++){
+      ll x; cin >> x;
+      gelly.pb(x);
+    }
+
+    for(ll i = 1; i <= k; i++){
+
+      sort(jelly.begin(), jelly.end());
+      sort(gelly.begin(), gelly.end());
+      reverse(gelly.begin(), gelly.end());
+
+      if((i%2 == 0) && (jelly[0] < gelly[0])) {
+
+        sort(jelly.begin(), jelly.end());
+        sort(gelly.begin(), gelly.end());
+        reverse(gelly.begin(), gelly.end());
+
+        swap(jelly[0], gelly[0]);
+
+        sort(gelly.begin(), gelly.end());
+        sort(jelly.begin(), jelly.end());
+      }
+
+      else if((i%2 != 0) && (gelly[0] < jelly[0])) {
+
+        sort(jelly.begin(), jelly.end());
+        sort(gelly.begin(), gelly.end());
+        reverse(jelly.begin(), jelly.end());
+
+        swap(gelly[0], jelly[0]);
+
+        sort(gelly.begin(), gelly.end());
+        sort(jelly.begin(), jelly.end());
+      }
+      else continue;
+
+    }
+
+    for(ll i = 0; i < jelly.size(); i++){
+      sum += jelly[i];
+    }
+
+  cout << sum << nl;
 
   }
+
 }
 
 
 int main(){
-  FST_IO
+ //FST_IO
   NoCiLLaX();
 
 }
