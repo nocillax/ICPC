@@ -41,7 +41,7 @@ typedef long double ldb;
   while(t--){
     ll n, m, k; cin >> n >> m >> k;
     ll jSum = 0;
-    ll x, y;
+    ll mxidx;
 
     vector<ll> j;
     vector<ll> g;
@@ -57,41 +57,60 @@ typedef long double ldb;
       g.pb(x);
     }
 
-    for(ll i = 1; i <= k; i++){
+    if(k%2 == 0 && k > 4) mxidx = 4;
+    else if(k%2 != 0 && k > 5) mxidx = 3;
+    else mxidx = k;
+
+    for(ll i = 1; i <= mxidx; i++){
+
+      ll jSumOdd = 0, jSumEven = 0;
 
       if(i%2 != 0){
         sort(j.begin(), j.end());
         sort(g.begin(), g.end());
 
-        if(j[0] < g[m-1]){
+        if(j[0] <= g[m-1]){
 
-          jSum = jSum - j[0] + g[m-1];
           swap(j[0], g[m-1]);
 
+          for(ll i = 0; i < j.size(); i++){
+            jSumOdd += j[i];
+          }
         }
+        else jSumOdd = jSum;
       }
 
-      if(i%2 == 0){
+      else if(i%2 == 0){
         sort(j.begin(), j.end());
         sort(g.begin(), g.end());
 
-        if(g[0] < j[n-1]){
+        if(g[0] <= j[n-1]){
 
-          jSum = jSum - j[n-1] + g[0];
           swap(g[0], j[n-1]);
 
+          for(ll i = 0; i < j.size(); i++){
+            jSumEven += j[i];
+          }
+        }
+        else jSumEven = jSum;
+      }
+
+      if(i == mxidx){
+
+        if(k%2 != 0){
+          cout << jSumOdd << nl;
+        }
+        else if(k%2 == 0){
+          cout << jSumEven << nl;
         }
       }
     }
-
-  cout << jSum << nl;
-
   }
 
 }
 
 int main(){
- //FST_IO
+  FST_IO
   NoCiLLaX();
 
 }
