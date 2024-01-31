@@ -61,7 +61,7 @@ typedef long double ldb;
       sort(gelly.begin(), gelly.end());
       reverse(gelly.begin(), gelly.end());
 
-      if((i%2 == 0) && (jelly[0] < gelly[0])) {
+      if((i%2 != 0) && (jelly[0] < gelly[0])) {
 
         sort(jelly.begin(), jelly.end());
         sort(gelly.begin(), gelly.end());
@@ -73,7 +73,7 @@ typedef long double ldb;
         sort(jelly.begin(), jelly.end());
       }
 
-      else if((i%2 != 0) && (gelly[0] < jelly[0])) {
+      else if((i%2 == 0) && (gelly[0] < jelly[0])) {
 
         sort(jelly.begin(), jelly.end());
         sort(gelly.begin(), gelly.end());
