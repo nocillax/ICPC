@@ -33,7 +33,7 @@ typedef long double ldb;
 #define mod           10000007
 #define INF           2e18
 #define EPS           1e-2
-#define tt ll t; cin>>t; while(t--)
+#define tt            ll t; cin>>t; while(t--)
 // ------------------------------------------------------------------------------
   
   void NoCiLLaX(){
