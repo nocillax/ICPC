@@ -33,32 +33,78 @@ typedef long double ldb;
 #define mod           10000007
 #define INF           2e18
 #define EPS           1e-2
-#define tt ll t; cin>>t; while(t--)
+#define tt            ll t; cin>>t; while(t--)
 // ------------------------------------------------------------------------------
   
   void NoCiLLaX(){
+  tt{
+    ll n, m, k; cin >> n >> m >> k;
+    ll jSum = 0;
+    ll mxidx;
 
-    ll s; cin >> s;
-    vector<pl> d;
-    tt {
+    vector<ll> j;
+    vector<ll> g;
 
-      ll f, s; cin >> f >> s;
-      d.pb({f,s});
-
+    for(ll i = 0; i < n; i++){
+      ll x; cin >> x;
+      jSum += x;
+      j.pb(x);
     }
 
-    sort(all(d));
+    for(ll i = 0; i < m; i++){
+      ll x; cin >> x;
+      g.pb(x);
+    }
 
-    for(ll i = 0; i < d.size(); i++){
-      if(s > d[i].ff){
-        s += d[i].ss;
+    if(k%2 == 0 && k > 4) mxidx = 4;
+    else if(k%2 != 0 && k > 5) mxidx = 3;
+    else mxidx = k;
+
+    for(ll i = 1; i <= mxidx; i++){
+
+      ll jSumOdd = 0, jSumEven = 0;
+
+      if(i%2 != 0){
+        sort(all(j));
+        sort(all(g));
+
+        if(j[0] <= g[m-1]){
+
+          swap(j[0], g[m-1]);
+
+          for(ll i = 0; i < j.size(); i++){
+            jSumOdd += j[i];
+          }
+        }
+        else jSumOdd = jSum;
       }
-      else{
-        cout << "NO" << nl;
-        return;
+
+      else if(i%2 == 0){
+        sort(all(j));
+        sort(all(g));
+
+        if(g[0] <= j[n-1]){
+
+          swap(g[0], j[n-1]);
+
+          for(ll i = 0; i < j.size(); i++){
+            jSumEven += j[i];
+          }
+        }
+        else jSumEven = jSum;
       }
-    } 
-    cout << "YES" << nl;
+
+      if(i == mxidx){
+
+        if(k%2 != 0){
+          cout << jSumOdd << nl;
+        }
+        else if(k%2 == 0){
+          cout << jSumEven << nl;
+        }
+      }
+    }
+  }
   }
 
 
