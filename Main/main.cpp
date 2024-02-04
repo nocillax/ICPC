@@ -37,21 +37,10 @@ typedef long double ldb;
 // ------------------------------------------------------------------------------
   
   void NoCiLLaX(){
-    ll n; cin >> n;
-    string s = "I hate ";
-    if(n == 1) cout << "I hate it" << nl;
-
-    else {
-
-      for (ll i = 1; i < n; i++){
-
-        if(i%2 == 0) s += "that I hate ";
-        if(i%2 != 0) s += "that I love ";
-
-      }
-      s += "it";
-      cout << s << nl;
-    }
+    ll k, n, w; cin >> k >> n >> w;
+    ll cost = k * (w * (w + 1) / 2);
+    if(cost <= n) cout << 0 << nl;
+    else cout << cost - n << nl;
   }
 
 
