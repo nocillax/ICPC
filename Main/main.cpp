@@ -37,74 +37,17 @@ typedef long double ldb;
 // ------------------------------------------------------------------------------
   
   void NoCiLLaX(){
-  tt{
-    ll n, m, k; cin >> n >> m >> k;
-    ll jSum = 0;
-    ll mxidx;
-
-    vector<ll> j;
-    vector<ll> g;
-
-    for(ll i = 0; i < n; i++){
-      ll x; cin >> x;
-      jSum += x;
-      j.pb(x);
-    }
-
-    for(ll i = 0; i < m; i++){
-      ll x; cin >> x;
-      g.pb(x);
-    }
-
-    if(k%2 == 0 && k > 4) mxidx = 4;
-    else if(k%2 != 0 && k > 5) mxidx = 3;
-    else mxidx = k;
-
-    for(ll i = 1; i <= mxidx; i++){
-
-      ll jSumOdd = 0, jSumEven = 0;
-
-      if(i%2 != 0){
-        sort(all(j));
-        sort(all(g));
-
-        if(j[0] <= g[m-1]){
-
-          swap(j[0], g[m-1]);
-
-          for(ll i = 0; i < j.size(); i++){
-            jSumOdd += j[i];
-          }
-        }
-        else jSumOdd = jSum;
-      }
-
-      else if(i%2 == 0){
-        sort(all(j));
-        sort(all(g));
-
-        if(g[0] <= j[n-1]){
-
-          swap(g[0], j[n-1]);
-
-          for(ll i = 0; i < j.size(); i++){
-            jSumEven += j[i];
-          }
-        }
-        else jSumEven = jSum;
-      }
-
-      if(i == mxidx){
-
-        if(k%2 != 0){
-          cout << jSumOdd << nl;
-        }
-        else if(k%2 == 0){
-          cout << jSumEven << nl;
-        }
+    bool hard = false;
+    tt{
+      ll n; cin >> n;
+      if(n == 1){
+        hard = true;
+        break;
       }
     }
-  }
+
+    if(hard) cout << "HARD" << nl;
+    else cout << "EASY" << nl;
   }
 
 
