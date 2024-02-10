@@ -34,6 +34,7 @@ typedef long double ldb;
 #define EPS           1e-2
 #define tt            ll t; cin>>t; while(t--)
 #define all(x)        x.begin(), x.end()
+#define sp(n)         fixed<<setprecision(n)
 // ------------------------------------------------------------------------------
 
 void NoCiLLaX(){
