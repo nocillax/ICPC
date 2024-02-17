@@ -35,18 +35,29 @@ typedef long double ldb;
 #define EPS           1e-2
 #define tt            ll t; cin>>t; while(t--)
 #define sp(n)         fixed<<setprecision(n)
+#define maxIdx(v)      max_element(all(v)) - v.begin()
+#define minIdx(v)      min_element(all(v)) - v.begin()
+#define maxEle(v)      *max_element(all(v))
+#define minEle(v)      *min_element(all(v))
 // ------------------------------------------------------------------------------
   
   void NoCiLLaX(){
+
+    ll mSum = 0, cSum = 0;
+
     tt{
-      string s; cin >> s;
-      if(tolower(s[0]) == 'y' && tolower(s[1]) == 'e' && tolower(s[2]) == 's'){
-        cout << "YES" << nl;
-      }
-      else{
-        cout << "NO" << nl;
-      }
+
+      ll m, c; cin >> m >> c;
+      
+      if(m > c) mSum++;
+      else if(m < c) cSum++;
+
     }
+
+    if(mSum > cSum) cout << "Mishka" << nl;
+    else if(mSum < cSum) cout << "Chris" << nl;
+    else cout << "Friendship is magic!^^" << nl;
+
   }
 
 int main(){
