@@ -35,23 +35,60 @@ typedef long double ldb;
 #define EPS           1e-2
 #define tt            ll t; cin>>t; while(t--)
 #define sp(n)         fixed<<setprecision(n)
-#define maxIdx(v)      max_element(all(v)) - v.begin()
-#define minIdx(v)      min_element(all(v)) - v.begin()
-#define maxEle(v)      *max_element(all(v))
-#define minEle(v)      *min_element(all(v))
 // ------------------------------------------------------------------------------
   
-  void NoCiLLaX(){
-    tt{
-      string s; cin >> s;
-      if(tolower(s[0]) == 'y' && tolower(s[1]) == 'e' && tolower(s[2]) == 's'){
-        cout << "YES" << nl;
+string bigSum(string a, string b){
+
+  ll carry = 0;
+  vector<string> v;
+
+  reverse(all(a));
+  reverse(all(b));
+
+  ll sz = max(a.size(),b.size());
+
+  for (ll i = 0; i < sz; i++){
+
+      ll x, y, z;
+
+      if (i < a.size()) x = a[i] - '0';
+      else x = 0;
+
+      if (i < b.size()) y = b[i] - '0';
+      else y = 0;
+
+      z = x + y + carry;
+
+      if(z >= 10){
+          z = z - 10;
+          v.pb(to_string(z));
+          carry = 1;
       }
       else{
-        cout << "NO" << nl;
+          v.pb(to_string(z));
+          carry = 0;
       }
-    }
+
   }
+
+  if(carry == 1) v.pb(to_string(carry));
+
+  string s = "";
+
+  reverse(all(v));
+
+  for(ll i = 0; i < v.size(); i++){
+      s += v[i];
+  }
+
+  return s;
+}
+
+void NoCiLLaX(){
+  string a, b;
+  cin >> a >> b;
+  cout << bigSum(a,b) << nl;
+}
 
 int main(){
   //FST_IO
