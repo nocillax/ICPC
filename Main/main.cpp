@@ -43,18 +43,37 @@ typedef long double ldb;
   
   void NoCiLLaX(){
     tt{
-      string s; cin >> s;
-      if(tolower(s[0]) == 'y' && tolower(s[1]) == 'e' && tolower(s[2]) == 's'){
-        cout << "YES" << nl;
+      
+      ll sz; cin >> sz;
+      vector<ll> v;
+      vector<ll> temp;
+
+      for(ll i = 0; i < sz; i++){
+
+        ll x; cin >> x;
+        v.pb(x);
+        temp.pb(x);
       }
-      else{
-        cout << "NO" << nl;
-      }
+
+      sort(all(temp));
+
+      ll ans;
+
+      if(temp[0] == temp[1]) ans = temp[sz-1];
+      else ans = temp[0];
+
+      for(ll i = 0; i < sz; i++){
+        if(v[i] == ans){
+          cout << i+1 << nl;
+          break;
+        }
+      } 
+
     }
   }
 
 int main(){
-  //FST_IO
+  FST_IO
   NoCiLLaX();
 
 }
