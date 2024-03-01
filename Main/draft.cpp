@@ -26,81 +26,44 @@ typedef long double ldb;
 #define pb            push_back
 #define mp            make_pair
 #define mpl           make_pair<ll,ll>
-#define PR            pair<ll,ll>
+#define pl            pair<ll,ll>
+#define all(x)        x.begin(), x.end()
 #define ff            first
 #define ss            second
 #define mod           10000007
-#define INF           1e18
+#define INF           2e18
 #define EPS           1e-2
+#define tt            ll t; cin>>t; while(t--)
+#define sp(n)         fixed<<setprecision(n)
+#define maxIdx(v)      max_element(all(v)) - v.begin()
+#define minIdx(v)      min_element(all(v)) - v.begin()
+#define maxEle(v)      *max_element(all(v))
+#define minEle(v)      *min_element(all(v))
 // ------------------------------------------------------------------------------
   
   void NoCiLLaX(){
 
-  ll t; cin >> t;
-
-  while(t--){
-    ll n, m, k; cin >> n >> m >> k;
-    ll sum = 0;
-
-    vector<ll> jelly;
-    vector<ll> gelly;
+    ll n; cin >> n;
+    vector<ll> v;
 
     for(ll i = 0; i < n; i++){
+
       ll x; cin >> x;
-      jelly.pb(x);
-    }
-
-    for(ll i = 0; i < m; i++){
-      ll x; cin >> x;
-      gelly.pb(x);
-    }
-
-    for(ll i = 1; i <= k; i++){
-
-      sort(jelly.begin(), jelly.end());
-      sort(gelly.begin(), gelly.end());
-      reverse(gelly.begin(), gelly.end());
-
-      if((i%2 != 0) && (jelly[0] < gelly[0])) {
-
-        sort(jelly.begin(), jelly.end());
-        sort(gelly.begin(), gelly.end());
-        reverse(gelly.begin(), gelly.end());
-
-        swap(jelly[0], gelly[0]);
-
-        sort(gelly.begin(), gelly.end());
-        sort(jelly.begin(), jelly.end());
-      }
-
-      else if((i%2 == 0) && (gelly[0] < jelly[0])) {
-
-        sort(jelly.begin(), jelly.end());
-        sort(gelly.begin(), gelly.end());
-        reverse(jelly.begin(), jelly.end());
-
-        swap(gelly[0], jelly[0]);
-
-        sort(gelly.begin(), gelly.end());
-        sort(jelly.begin(), jelly.end());
-      }
-      else continue;
+      v.pb(x);
 
     }
+    ll mxIdx = maxIdx(v);
+    ll mnIdx = minIdx(v);
 
-    for(ll i = 0; i < jelly.size(); i++){
-      sum += jelly[i];
-    }
 
-  cout << sum << nl;
+    if(mnIdx < mxIdx) cout << abs(mnIdx - (v.size() - 1)) - 1 + abs(mxIdx - 0) << nl;
+    else cout << " h" << abs(mnIdx - (v.size() - 1)) + abs(mxIdx - 0) << nl;
+
 
   }
 
-}
-
-
 int main(){
- //FST_IO
+  FST_IO
   NoCiLLaX();
 
 }

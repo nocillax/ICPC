@@ -36,11 +36,6 @@ typedef long double ldb;
 #define EPS           1e-2
 #define tt            ll t; cin>>t; while(t--)
 #define sp(n)         fixed<<setprecision(n)
-#define maxEle(a)     *max_element(all(a))
-#define minEle(a)     *min_element(all(a))
-#define sum(a)        accumulate(all(a),0)
-#define maxEleIndex(a) max_element(all(a)) - a.begin()
-#define minEleIndex(a) min_element(all(a)) - a.begin()
 // ------------------------------------------------------------------------------
 
 void NoCiLLaX(){
